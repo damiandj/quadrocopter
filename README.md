@@ -136,3 +136,7 @@ Used script: [time_measure.py](quadrocopter/utils/time_measure.py).
       time on the y-axis.
     * The plot provided a clear representation of how the pathfinding performance scaled with increasing transmitter
       count.
+
+| ![time_measure.png](assets/time_measure.png) |
+|:--------------------------------------------:|
+|            Time measure results.             |
