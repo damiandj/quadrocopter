@@ -77,19 +77,22 @@ class PathFinder:
             circle = plt.Circle((transmitter.center.x, transmitter.center.y), transmitter.power, color='black',
                                 fill=False)
             plt.gca().add_patch(circle)
+            plt.plot(transmitter.center.x, transmitter.center.y, marker='s', markersize=5, color='black')
+            radius_x = [transmitter.center.x, transmitter.center.x + transmitter.power]
+            radius_y = [transmitter.center.y, transmitter.center.y]
+            plt.plot(radius_x, radius_y, color='black')
 
-        plt.scatter([self.start.x], [self.start.y], color='green', marker='+', label='Start', s=100)
-        plt.scatter([self.end.x], [self.end.y], color='red', marker='+', label='End', s=100)
+        plt.scatter([self.start.x], [self.start.y], color='green', marker='+', label='Start', s=1000)
+        plt.scatter([self.end.x], [self.end.y], color='red', marker='+', label='End', s=1000)
 
         if path:
             path_x = [self.start.x] + [transmitter.center.x for transmitter in path] + [self.end.x]
             path_y = [self.start.y] + [transmitter.center.y for transmitter in path] + [self.end.y]
-            plt.plot(path_x, path_y, linestyle='--', marker='o', markersize=0, color='blue', label='Path')
+            plt.plot(path_x, path_y, marker='o', markersize=0, color='blue', label='Path')
 
         plt.xlim(0, 5 + max(t.center.x + t.power for t in self.transmitters))
         plt.ylim(0, 5 + max(t.center.y + t.power for t in self.transmitters))
         plt.gca().set_aspect('equal', adjustable='box')
-        plt.legend()
         plt.grid(True)
         plt.title('Polygon with Transmitters and Path')
         plt.show()
