@@ -15,7 +15,7 @@ one exists.
 
 ## Installation
 
-The recommended way to install the PathFinder module is to use pip.
+The recommended way to install the Quadrocopter module is to use pip.
 Navigate to the directory containing the module's source code and run the following command:
 
 ```bash
